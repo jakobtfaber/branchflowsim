@@ -10,3 +10,4 @@ from scipy.special import gamma
 from scipy.interpolate import griddata
 import scipy.constants as sc
 import matplotlib.pyplot as plt
+from numba import jit

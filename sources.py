@@ -3,6 +3,7 @@
 # Author: Jakob Faber
 
 from imports import *
+from numba import jit
 
 # Sample params for testing:
 # cn2 = 1e-14
@@ -49,7 +50,6 @@ class Source():
 
         return plane
        
-    
     def PointSource(self):
         #Schmidt Point Source
         
@@ -60,7 +60,8 @@ class Source():
         pt = temp * np.sinc((self.x1/D1)) * np.sinc((self.y1/D1)) * np.exp(-(self.r1/(4.0 * D1))**2)        
         
         return pt
-        
+ 
+      
     def FlattePointSource(self):
     
         fpt = np.exp(-(self.r1**2) / (10*( self.dx**2)) ) \
@@ -68,7 +69,7 @@ class Source():
         
         return fpt
         
-        
+      
     def CollimatedGaussian(self):
        
         source = np.exp(-(self.r1**2 / self.w0**2))
